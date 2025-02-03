@@ -88,6 +88,7 @@ pub var poiPinTex = TAsset.init("resources/poi-ani.png");
 pub var poiPinLockedTex = TAsset.init("resources/locked-pin.png");
 pub var poiPinHoverTex = TAsset.init("resources/poi-hover-ani.png");
 pub var poiPinCompletedTex = TAsset.init("resources/checked-pin.png");
+pub var poiPinCompletedHoverTex = TAsset.init("resources/checked-hover-pin.png");
 
 pub var globeTexture = TAsset.init("resources/globe.png");
 pub var gameLogo = TAsset.init("resources/logo.png");

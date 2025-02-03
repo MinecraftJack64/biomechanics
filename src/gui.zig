@@ -250,7 +250,15 @@ pub const PoiPin = struct {
         if (self.isLocked) {
             drawTextureCenteredAtPoint(4.0, 0.0, scaledPoint, assets.poiPinLockedTex.getOrLoad());
         } else if (self.isCompleted) {
-            drawTextureCenteredAtPoint(4.0, 0.0, scaledPoint, assets.poiPinCompletedTex.getOrLoad());
+            if (rl.checkCollisionPointRec(mPos, calculateClickBounds(100, scaledPoint.x, scaledPoint.y))) {
+                pressed = rl.isMouseButtonPressed(.left);
+                drawTextureCenteredAtPoint(4.0, 0.0, scaledPoint, assets.poiPinCompletedHoverTex.getOrLoad());
+                if (!pressed) {
+                    return .Hovered;
+                }
+            } else {
+                drawTextureCenteredAtPoint(4.0, 0.0, scaledPoint, assets.poiPinCompletedTex.getOrLoad());
+            }
         } else if (rl.checkCollisionPointRec(mPos, calculateClickBounds(100, scaledPoint.x, scaledPoint.y))) {
             pressed = rl.isMouseButtonPressed(.left);
             drawTextureProCenteredAtPoint(4.0, 0.0, scaledPoint, assets.poiPinHoverTex.getOrLoad(), self.frameRect);
